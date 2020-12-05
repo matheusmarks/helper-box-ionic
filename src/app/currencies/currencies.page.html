@@ -1,4 +1,4 @@
-<ion-content class="main-container">
+<ion-content class="general-content">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -25,10 +25,6 @@
               <ion-icon slot="start" name="cash-outline"></ion-icon>
               <ion-label>Moeda Estrangeira</ion-label>
             </ion-item>
-            <ion-item routerLink="/weather">
-              <ion-icon slot="start" name="bag-handle-outline"></ion-icon>
-              <ion-label>Lista de Compras</ion-label>
-            </ion-item>
             <ion-item routerLink="/">
               <ion-icon slot="start" name="close-outline"></ion-icon>
               <ion-label>Excluir Conta</ion-label>
@@ -47,17 +43,34 @@
           <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
           </ion-buttons>
-          <ion-title>Home</ion-title>
+          <ion-title>Moedas Estrangeiras</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <div class="content">
-          <h3>Bem-vindo ao Helper Box !</h3>
-          <p>Uma plataforma que permite você obter informações diversas como</p>
-          <p>previsão do tempo de sua região, cotação do dólar,</p>
-          <p>dentre outras moedas e muito mais </p>
+      <div class="content">
+        <div class="currency-form">
+          <h3>Real Brasileiro</h3>
+          <ion-content>
+            <form #formData="ngForm" (ngSubmit)="searchValues(formData.value)">
+              <ion-item>
+                <ion-label>R$</ion-label>
+                <ion-input placeholder="0,00" ngModel name="brazilianRealValue"></ion-input>
+              </ion-item>
+              <div class="button-content">
+                <ion-button type="submit" class="search-currencies-button">
+                  Converter
+                </ion-button>
+              </div>
+            </form>
+          </ion-content>
+          <div class="currencies">
+            <ion-list *ngFor="let currency of currencies">
+              <ion-item>{{ currency.name }}</ion-item>
+              <ion-item>{{ currency.bid }}</ion-item>
+            </ion-list>
+          </div>
+
         </div>
-      </ion-content>
+      </div>
     </ion-router-outlet>
   </ion-split-pane>
 </ion-content>

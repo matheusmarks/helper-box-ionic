@@ -14,12 +14,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule),
-    canActivate: [AuthGuard]
   },
   {
     path: 'weather',
-    loadChildren: () => import('./weather/weather.module').then(m => m.WeatherPageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./weather/weather.module').then(m => m.WeatherPageModule)
+  },
+  {
+    path: 'currencies',
+    loadChildren: () => import('./currencies/currencies.module').then(m => m.CurrenciesPageModule),
   }
 ];
 

@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
     const user = await this.authentication.loginUser(formUser);
 
     if (user) {
-      this.popUpService.presentAlert('Login realizado com sucesso !');
       this.authentication.isLogged = true;
       this.router.navigateByUrl('/dashboard');
       return;
@@ -58,7 +57,7 @@ export class LoginPage implements OnInit {
   async nativeGoogleLogin(): Promise<firebase.auth.UserCredential> {
     try {
       const gPlusUser = await this.gplus.login({
-        'webClientId': process.env.WEB_CLIENT_ID,
+        'webClientId': '791223145380-jd1g30vk9078un0rj41otjgivn5vkqjf.apps.googleusercontent.com',
         'offline': true,
         'scopes': 'profile email'
       });
@@ -67,7 +66,7 @@ export class LoginPage implements OnInit {
         firebase.auth.GoogleAuthProvider.credential(gPlusUser.idToken)
       );
     } catch (err) {
-      this.popUpService.presentAlert('Ocorreu um erro, tente novamente');
+      this.popUpService.presentAlert('Ocorreu um erro ao fazer login, tente novamente');
     }
   }
 
@@ -84,10 +83,10 @@ export class LoginPage implements OnInit {
 
   signOut() {
     this.authFire.signOut();
-    /*if (this.platform.is('cordova')) {
+    if (this.platform.is('cordova')) {
       this.gplus.logout();
       return;
-    }*/
+    }
   }
 
 

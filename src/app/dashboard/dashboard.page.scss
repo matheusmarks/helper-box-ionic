@@ -1,9 +1,20 @@
-ion-content {
+.main-container {
   --background: linear-gradient(180deg, #312E38 58.85%, #1B1B1B 100%);
 }
 
+ion-split-pane {
+  --ion-background-color: #000;
+}
+
+ion-list-header {
+  --color: #f0f0f1;
+  font-family: Inter, Arail, sans-serif,
+}
+
+
+
 ion-menu ion-content {
-    --background: var(--ion-item-background, var(--ion-background-color, #fff));
+    --background: var(--ion-item-background,  var(--ion-background-color, #fff));
 }
   
   ion-menu.md ion-content {
@@ -11,6 +22,8 @@ ion-menu ion-content {
     --padding-end: 8px;
     --padding-top: 20px;
     --padding-bottom: 20px;
+    --background-color: #000;
+    --color: #f0f0f1; 
   }
   
   ion-menu.md ion-list {
@@ -51,6 +64,10 @@ ion-menu ion-content {
     --padding-start: 10px;
     --padding-end: 10px;
     border-radius: 4px;
+
+    ion-label {
+      --color: #f0f0f1;
+    }
   }
   
   ion-menu.md ion-item.selected {
@@ -146,3 +163,143 @@ ion-menu ion-content {
   ion-router-outlet #container a {
     text-decoration: none;
   }
+
+  ion-router-outlet {
+
+    ion-header {
+      --ion-background-color: #000;
+      --background: var(--ion-item-background);
+      --color: #f0f0f1;
+
+      ion-toolbar {
+        --ion-background-color: #000;
+        --background: var(--ion-item-background);
+        --color: #f0f0f1;
+
+        ion-title{
+          --color: #f0f0f1;
+        }
+
+        ion-buttons {
+         --ion-background-color: #000;
+         --background: var(--ion-item-background);
+        }
+      }
+    }
+
+  
+    ion-content{
+      --background: linear-gradient(180deg, #312E38 58.85%, #1B1B1B 100%);
+      .content {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+  
+        h3 {
+          font-family: Inter, Arial, sans-serif;
+          font-weight: bold;
+          font-size: 2rem;
+          color: #f0f0f1;
+        }
+    
+        p {
+          font-family: Poppins, Arial, sans-serif;
+          font-size: 1rem;
+          color: #f0f0f1;
+        }
+      }
+    }
+  }
+
+
+  /* Media Queries */
+
+  @media(max-width: 715px) {
+    ion-router-outlet {
+  
+      ion-content{
+        .content {
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+    
+          h3 {
+            font-family: Inter, Arial, sans-serif;
+            font-size: 2rem;
+            color: #f0f0f1;
+          }
+      
+          p {
+            font-family: Poppins, Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #f0f0f1;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 540px) {
+    ion-router-outlet {
+  
+      ion-content{
+        .content {
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+    
+          h3 {
+            font-family: Inter, Arial, sans-serif;
+            font-size: 2rem;
+            color: #f0f0f1;
+          }
+      
+          p {
+            font-family: Poppins, Arial, sans-serif;
+            font-size: 0.7rem;
+            color: #f0f0f1;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 480px) {
+    ion-router-outlet {
+  
+      ion-content{
+        .content {
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+    
+          h3 {
+            font-family: Inter, Arial, sans-serif;
+            font-size: 1rem;
+            color: #f0f0f1;
+          }
+      
+          p {
+            font-family: Poppins, Arial, sans-serif;
+            font-size: 10px;
+            color: #f0f0f1;
+          }
+        }
+      }
+    }
+  }
+
+      
+  
