@@ -25,8 +25,12 @@ https://helperboxionic.firebaseapp.com/
 
 <h3>Mobile</h3>
 <div style="display=flex">
-  <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/home-mob.PNG" /></p>
-  <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/menu-mob.PNG" /></p>
+  <div>
+    <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/home-mob.PNG" /></p>
+  </div>
+  <div>
+    <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/menu-mob.PNG" /></p>
+  </div>
 </div>
 
 
