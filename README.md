@@ -12,10 +12,24 @@ https://helperboxionic.firebaseapp.com/
 
 <p align="center">
  <a href="#about">About</a> • 
- <a href="#how-it-works">How it works</a> • 
+ <a href="#web">Web</a> • 
+ <a href="#web">Mobile</a> • 
  <a href="#APIs-utilizadas">APIs utilizadas</a> • 
  <a href="#Tecnologias">Tecnologias</a> • 
 </p>
+
+<h3>Web</h3>
+<p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/login.png" /></p>
+<p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/home.png" /></p>
+<p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/moedas.png" /></p>
+
+<h3>Mobile</h3>
+<div sytyle="display=flex">
+  <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/home-mob.PNG" /></p>
+  <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/menu-mob.PNG" /></p>
+  <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/moedas.png" /></p>
+</div>
+
 
 <h3>APIs utilizadas</h3>
   <ul>
