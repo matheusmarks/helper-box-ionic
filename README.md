@@ -69,5 +69,5 @@ $ ionic serve
 ```
 
 <h3>Licença</h3>
-<p>MIT Licence</p>
+<a href="https://github.com/matheusmarks/helper-box-ionic/blob/main/LICENSE">MIT Licence</p>
 
