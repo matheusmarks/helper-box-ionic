@@ -9,11 +9,11 @@
 </p>
 
 <p align="center">
- <a href="#about">About</a> • 
  <a href="#web">Web</a> • 
- <a href="#web">Mobile</a> • 
+ <a href="#mobile">Mobile</a> • 
  <a href="#APIs-utilizadas">APIs utilizadas</a> • 
  <a href="#Tecnologias">Tecnologias</a> • 
+ <a href="#usabilidade">Usabilidade</a> • 
 </p>
 
 <h3>Web</h3>
@@ -47,7 +47,26 @@
     <li>Sass</li>
     <li>Ionicons</li>
   </ul>
+ 
+ <h3>Usabilidade</h3>
+ <p>Primeiramente, é necessária a instalação do <a href="https://nodejs.org/en/">Node.js</a> e do <a href="https://ionicframework.com/docs/intro/cli">Ionic CLI</a> e logo
+em seguida siga os trechos de código abaixo no seu terminal: </p>
+ 
+ ```bash
+# Clonar o repositório
+$ git clone https://github.com/matheusmarks/helper-box-ionic
 
----
-Feel free to clone the project and if you want to support me <strong>check out out my <a href="https://www.linkedin.com/in/matheus-marques-0558921b4/">LinkedIn</a> and <a href="https://github.com/matheusmarks">GitHub</a></strong>
+# Ir para a pasta do projeto
+$ cd helper-box-ionic
+
+# Instalar as dependências
+$ npm install
+
+# Inicializar o app
+$ ionic serve
+
+```
+
+<h3>Licença</h3>
+<p>MIT Licence</p>
 
