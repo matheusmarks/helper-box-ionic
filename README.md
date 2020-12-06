@@ -1,7 +1,7 @@
 <h1 align="center">HelperBox</h1>
 
 
-<h3>Acesse a aplicação pela url do site</h3>
+<h3>Acesse a aplicação pela url</h3>
 https://helperboxionic.firebaseapp.com/
 
 <p align="center">
@@ -13,17 +13,21 @@ https://helperboxionic.firebaseapp.com/
 <p align="center">
  <a href="#about">About</a> • 
  <a href="#how-it-works">How it works</a> • 
- <a href="#how-to-use">How to use</a> • 
+ <a href="#APIs-utilizadas">APIs utilizadas</a> • 
  <a href="#Tecnologias">Tecnologias</a> • 
 </p>
+
+<h3>APIs utilizadas</h3>
+  <ul>
+    <li><a href="https://hgbrasil.com/status/weather">HG Weather Brasil API</a></li>
+    <li><a href="https://docs.awesomeapi.com.br/">Awesome API</a></li>
+  </ul>
 
 <h3>Tecnologias</h3>
   <ul>
     <li>Ionic</li>
     <li>Angular</li>
     <li>Firebase</li>
-    <li>HG Weather Brasil API</li>
-    <li>Awesome API</li>
     <li>TSLint</li>
     <li>Sass</li>
     <li>Ionicons</li>
