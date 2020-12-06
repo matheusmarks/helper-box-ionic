@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { WeatherApiService } from '../../services/weatherApi.service';
 
 interface CepForm {
@@ -33,7 +34,11 @@ export class WeatherPage implements OnInit {
     description: ''
   };
 
-  constructor(private weatherApi: WeatherApiService) { }
+  constructor(
+    private weatherApi: WeatherApiService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -54,5 +59,6 @@ export class WeatherPage implements OnInit {
   async searchWeatherForecast(url: string) {
     await this.weatherApi.fetchWeatherApi(url).then(response => this.weatherData = response.results);
   }
+
 
 }

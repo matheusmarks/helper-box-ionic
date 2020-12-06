@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../app/dtos/IUser';
+import { Platform } from '@ionic/angular';
 
 @Injectable({
     providedIn: 'root',
@@ -31,4 +32,7 @@ export class AuthenticationService {
             console.log('Unexpected error: ', err);
         }
     }
+
+
+
 }

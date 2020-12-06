@@ -1,6 +1,6 @@
 <ion-content class="main-container">
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu menuId="main-menu" contentId="main-content" type="overlay">
       <ion-content>
 
         <ion-list id="inbox-list">
@@ -25,10 +25,6 @@
               <ion-icon slot="start" name="cash-outline"></ion-icon>
               <ion-label>Moeda Estrangeira</ion-label>
             </ion-item>
-            <ion-item routerLink="/weather">
-              <ion-icon slot="start" name="bag-handle-outline"></ion-icon>
-              <ion-label>Lista de Compras</ion-label>
-            </ion-item>
             <ion-item routerLink="/">
               <ion-icon slot="start" name="close-outline"></ion-icon>
               <ion-label>Excluir Conta</ion-label>
@@ -41,15 +37,18 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content">
+    <ion-router-outlet id="main-content" main>
+
       <ion-header [translucent]="true">
+
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
+            <ion-menu-button menu="main-menu"></ion-menu-button>
           </ion-buttons>
           <ion-title>Home</ion-title>
         </ion-toolbar>
       </ion-header>
+
       <ion-content>
         <div class="content">
           <h3>Bem-vindo ao Helper Box !</h3>
@@ -58,6 +57,7 @@
           <p>dentre outras moedas e muito mais </p>
         </div>
       </ion-content>
+
     </ion-router-outlet>
   </ion-split-pane>
 </ion-content>

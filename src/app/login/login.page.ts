@@ -7,8 +7,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Observable } from 'rxjs';
 import firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { Platform } from '@ionic/angular';
-
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,8 @@ export class LoginPage implements OnInit {
     private popUpService: PopUpMessageService,
     private gplus: GooglePlus,
     private platform: Platform,
-    private authFire: AngularFireAuth) {
+    private authFire: AngularFireAuth,
+    private facebook: Facebook) {
     this.user = this.authFire.authState;
   }
 
@@ -45,6 +46,7 @@ export class LoginPage implements OnInit {
     this.popUpService.presentAlert('Erro ao fazer login, verifique suas credenciais');
   }
 
+  /* Login com Gmail */
   async userLoginGoogle() {
     if (this.platform.is('cordova')) {
       this.nativeGoogleLogin();
@@ -54,10 +56,11 @@ export class LoginPage implements OnInit {
     this.webGoogleLogin();
   }
 
+  /* Login com Gmail pelo Android ou iOS */
   async nativeGoogleLogin(): Promise<firebase.auth.UserCredential> {
     try {
       const gPlusUser = await this.gplus.login({
-        'webClientId': '791223145380-jd1g30vk9078un0rj41otjgivn5vkqjf.apps.googleusercontent.com',
+        'webClientId': 'your-web-client-id',
         'offline': true,
         'scopes': 'profile email'
       });
@@ -70,6 +73,7 @@ export class LoginPage implements OnInit {
     }
   }
 
+  /* Popup tela de redirecionamento do Google */
   async webGoogleLogin(): Promise<void> {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -81,11 +85,81 @@ export class LoginPage implements OnInit {
     }
   }
 
+  /* Signout Gmail */
   signOut() {
     this.authFire.signOut();
     if (this.platform.is('cordova')) {
       this.gplus.logout();
       return;
+    }
+  }
+
+  loginFacebook(): void {
+    if (this.platform.is('cordova')) {
+      this.nativeFacebookAuth();
+    } else {
+      this.browserFacebookAuth();
+    }
+  }
+
+  isUserEqual(facebookAuthResponse, firebaseUser): boolean {
+    if (firebaseUser) {
+      const providerData = firebaseUser.providerData;
+
+      providerData.forEach(data => {
+        if (
+          data.providerId === firebase.auth.FacebookAuthProvider.PROVIDER_ID &&
+          data.uid === facebookAuthResponse.userID
+        ) {
+          return true;
+        }
+      });
+    }
+
+    return false;
+  }
+
+  /* Login facebook pelo android ou iOS */
+  async nativeFacebookAuth(): Promise<void> {
+    try {
+      const response = await this.facebook.login(["public_profile", "email"]);
+
+      if (response.authResponse) {
+
+        const unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
+          unsubscribe();
+
+          if (!this.isUserEqual(response.authResponse, firebaseUser)) {
+
+            const credential = firebase.auth.FacebookAuthProvider.credential(
+              response.authResponse.accessToken
+            );
+
+            firebase
+              .auth()
+              .signInWithCredential(credential)
+              .catch(error => {
+                console.log(error);
+              });
+          }
+        });
+      } else {
+        firebase.auth().signOut();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  /* Login facebook pelo browser */
+  async browserFacebookAuth(): Promise<void> {
+    const provider = new firebase.auth.FacebookAuthProvider();
+
+    try {
+      const result = await firebase.auth().signInWithPopup(provider);
+      this.router.navigateByUrl('/dashboard');
+    } catch (err) {
+      console.log(err);
     }
   }
 

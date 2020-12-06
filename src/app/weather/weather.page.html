@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [scrollEvents]="true">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -13,6 +13,7 @@
 
           </ion-list-header>
           <ion-note></ion-note>
+
 
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/dashboard">
@@ -39,7 +40,10 @@
         </ion-list>
       </ion-content>
     </ion-menu>
+
+
     <ion-router-outlet id="main-content">
+
       <ion-header [translucent]="true">
         <ion-toolbar>
           <ion-buttons slot="start">
@@ -49,10 +53,11 @@
         </ion-toolbar>
       </ion-header>
       <div class="content">
+
         <div class="currency-form">
           <ion-content>
             <form #formData="ngForm" (ngSubmit)="searchCEP(formData.value)">
-              <ion-item>
+              <ion-item class="item-form">
                 <ion-label>
                   <ion-icon name="mail-outline"></ion-icon>
                 </ion-label>
@@ -65,7 +70,11 @@
               </div>
             </form>
           </ion-content>
-          <div class="currencies">
+
+
+        </div>
+        <div class="currencies">
+          <ion-content>
             <ion-list>
               <ion-item class="item-title">Localização</ion-item>
               <ion-item>{{weatherData.city}}</ion-item>
@@ -78,7 +87,7 @@
               <ion-item class="item-title">Previsão</ion-item>
               <ion-item>{{weatherData.description}}</ion-item>
             </ion-list>
-          </div>
+          </ion-content>
         </div>
       </div>
     </ion-router-outlet>

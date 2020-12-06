@@ -1,4 +1,4 @@
-<ion-content class="general-content">
+<ion-content class="general-content" [scrollEvents]="true">
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -37,7 +37,9 @@
         </ion-list>
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet id="main-content">
+
       <ion-header [translucent]="true">
         <ion-toolbar>
           <ion-buttons slot="start">
@@ -46,14 +48,17 @@
           <ion-title>Moedas Estrangeiras</ion-title>
         </ion-toolbar>
       </ion-header>
+
       <div class="content">
+
         <div class="currency-form">
           <h3>Real Brasileiro</h3>
+
           <ion-content>
             <form #formData="ngForm" (ngSubmit)="searchValues(formData.value)">
-              <ion-item>
+              <ion-item class="item-form">
                 <ion-label>R$</ion-label>
-                <ion-input placeholder="0,00" ngModel name="brazilianRealValue"></ion-input>
+                <ion-input placeholder="0.00 (com ponto)" ngModel name="brazilianRealValue"></ion-input>
               </ion-item>
               <div class="button-content">
                 <ion-button type="submit" class="search-currencies-button">
@@ -62,6 +67,7 @@
               </div>
             </form>
           </ion-content>
+
           <div class="currencies">
             <ion-list *ngFor="let currency of currencies">
               <ion-item>{{ currency.name }}</ion-item>
