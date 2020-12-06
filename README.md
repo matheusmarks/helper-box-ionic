@@ -14,6 +14,7 @@
  <a href="#APIs-utilizadas">APIs utilizadas</a> • 
  <a href="#Tecnologias">Tecnologias</a> • 
  <a href="#usabilidade">Usabilidade</a> • 
+  <a href="#licença">Licença</a> • 
 </p>
 
 <h3>Web</h3>
