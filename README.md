@@ -24,7 +24,7 @@ https://helperboxionic.firebaseapp.com/
 <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/moedas.png" /></p>
 
 <h3>Mobile</h3>
-<div style="display=flex">
+<div align="center">
   <div>
     <p><img src="https://github.com/matheusmarks/images/blob/master/helper-box/home-mob.PNG" /></p>
   </div>
